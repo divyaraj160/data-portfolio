@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Divyaraj Jadeja | Data Scientist Portfolio</title>
+  <title>Divyaraj Jadeja | Data Analytics Portfolio</title>
 
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -37,7 +37,8 @@
       background-color: #0f172a;
       color: #f9fafb;
     }
-
+    body.dark #home h1 { color: #ffffff; }
+    body.dark #typing-text { color: #e5e7eb; } 
     /* Heartbeat animation */
     #heartbeat-line path {
       stroke-dasharray: 200;
@@ -231,6 +232,122 @@
     .tag {
     @apply bg-slate-700 text-slate-100 text-xs px-2 py-1 rounded-full;
   }
+
+/* container */
+.project-wrap-unique{
+  max-width: 980px;
+  margin: 48px auto;
+  padding: 0 18px;
+}
+
+/* header */
+.project-head-unique{
+  display:flex; flex-direction:column; gap:16px; margin-bottom:20px;
+}
+.project-title-unique{
+  margin:0;
+  font-weight: 900;
+  letter-spacing:.2px;
+  font-size: clamp(28px, 4vw, 42px);
+  /* gradient title that works without custom vars */
+  background: linear-gradient(90deg, #93c5fd 0%, #8b5cf6 45%, #10b981 95%);
+  -webkit-background-clip:text; background-clip:text; color:transparent;
+  text-shadow: 0 8px 30px rgba(124,58,237,.35);
+}
+
+/* filter pills */
+.project-filters-unique{display:flex; gap:10px; flex-wrap:wrap}
+.project-pill-unique{
+  padding:9px 14px;
+  border-radius:999px;
+  border:1px solid rgba(148,163,184,.18);
+  background: rgba(255,255,255,.03);
+  color: inherit;
+  cursor:pointer;
+  transition: background .2s ease, border-color .2s ease, transform .15s ease, box-shadow .2s ease;
+  box-shadow: 0 0 0 rgba(124,58,237,0);
+}
+.project-pill-unique:hover{background:rgba(148,163,184,.12)}
+.project-pill-unique.active{
+  background: linear-gradient(120deg, #6366f1, #06b6d4); /* indigo → cyan */
+  border-color: transparent;
+  color: #fff;
+  box-shadow: 0 8px 22px rgba(99,102,241,.35);
+}
+
+/* list (vertical) */
+.project-list-unique{
+  display:flex; flex-direction:column; gap:18px;
+}
+
+/* card */
+.project-card-unique{
+  display:flex; flex-direction:column; gap:10px;
+  border:1px solid rgba(148,163,184,.18);
+  border-radius:18px;
+  padding:20px 22px;
+  transition: box-shadow .25s ease, transform .25s ease, border-color .25s ease;
+}
+/* dark mode card bg */
+body.dark .project-card-unique{
+  background: linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.01)), #0f172a;
+}
+/* light mode card bg */
+body:not(.dark) .project-card-unique{
+  background: #ffffff;
+}
+
+/* hover */
+.project-card-unique:hover{
+  transform: translateY(-3px);
+  box-shadow: 0 18px 40px rgba(0,0,0,.18);
+}
+
+/* content */
+.project-card-title-unique{
+  margin:0; font-size:18px; font-weight:800; letter-spacing:.2px;
+}
+.project-card-desc-unique{
+  margin:0;
+  color: rgba(148,163,184,.9); /* slate-400/500 feel */
+}
+.project-badges-unique{display:flex; gap:8px; flex-wrap:wrap}
+.project-badge-unique{
+  font-size:12px; padding:4px 10px; border-radius:999px;
+  border:1px solid rgba(148,163,184,.22);
+  background: rgba(148,163,184,.10);
+  color: inherit;
+}
+.project-link-unique{
+  margin-top:2px; align-self:flex-start;
+  color:#1d4ed8; /* link in light */
+  text-decoration: underline; text-underline-offset:4px; text-decoration-style:dotted;
+}
+body.dark .project-link-unique{ color:#dbeafe; } /* link in dark */
+
+/* subtle neon borders per category */
+.project-card-unique[data-cat*="analytics"]{border-color: rgba(99,102,241,.55);}   /* indigo */
+.project-card-unique[data-cat*="science"]  {border-color: rgba(244,114,182,.55);}  /* pink */
+.project-card-unique[data-cat*="excel"]    {border-color: rgba(34,211,238,.55);}   /* cyan */
+.project-card-unique[data-cat*="powerbi"]  {border-color: rgba(245,158,11,.60);}   /* amber */
+
+/* CTA */
+.project-more-unique{display:flex; justify-content:center; margin-top:22px}
+.project-cta-unique{
+  display:inline-flex; align-items:center; gap:10px;
+  padding:12px 18px; border-radius:14px; font-weight:800; letter-spacing:.2px;
+  color:#fff; text-decoration:none;
+  background: linear-gradient(120deg, #6366f1, #06b6d4);
+  box-shadow: 0 12px 26px rgba(99,102,241,.35);
+  border: 1px solid rgba(148,163,184,.18);
+}
+.project-cta-unique:hover{filter:brightness(1.06)}
+
+/* responsive polish */
+@media (max-width: 520px){
+  .project-card-unique{padding:16px}
+  .project-card-title-unique{font-size:17px}
+}
   </style>
 </head>
 <body>
@@ -241,11 +358,14 @@
     <div
       class="max-w-7xl mx-auto flex items-center justify-between px-6 py-4"
     >
-      <h1 class="font-display text-2xl font-bold text-primary">&lt;DJ/&gt;</h1>
+   <h1 class="flex items-center gap-2 text-xl font-bold">
+  <i class="fas fa-chart-line text-emerald-400"></i>
+  <span class="bg-gradient-to-r from-indigo-400 to-pink-500 bg-clip-text text-transparent">Divyaraj</span>
+</h1>
       <nav class="hidden md:flex space-x-8 text-sm">
         <a class="hover:text-primary" href="#about">About</a>
         <a class="hover:text-primary" href="#skills">Skills</a>
-        <a class="hover:text-primary" href="#projects">Projects</a>
+        <a class="hover:text-primary" href="#project-list-unique">Projects</a>
         <a class="hover:text-primary" href="#contact">Contact</a>
       </nav>
       <button id="themeToggle" class="text-xl hover:text-primary">
@@ -290,12 +410,12 @@
     <div class="max-w-5xl mx-auto text-center">
       <h2 class="text-4xl font-bold text-white mb-6">About Me</h2>
       <p class="text-lg text-gray-300 leading-relaxed">
-        I'm <span class="font-semibold text-white">Divyaraj Jadeja</span>, a passionate <span class="text-indigo-400">Data Scientist</span> who loves solving complex problems using data.
-        With hands-on experience in machine learning, SQL, and real-world analytics projects, I specialize in creating impactful solutions through code and insight.
+        I'm <span class="font-semibold text-white">Divyaraj Jadeja</span>, a passionate <span class="text-indigo-400">Data Analyst</span> who turns messy data into clear, decision‑ready insights.
+        I work across the analytics lifecycle: requirements, data cleaning, SQL modeling, and building interactive dashboards.
         <br/><br/>
-        I enjoy transforming raw data into meaningful stories that drive smarter decisions. Whether it's building predictive models, cleaning messy datasets, or deploying dashboards, I thrive at every stage of the data journey.
+        My toolkit includes Excel/Power Query, SQL, Python (Pandas), and Power BI—plus enough statistics to ask the right questions and validate results.
         <br/><br/>
-        Currently exploring Generative AI and production-ready ML systems.
+        Currently exploring business analytics, DAX best practices, and production‑grade BI.
       </p>
     </div>
   </section>
@@ -313,48 +433,115 @@
     </div>
   </section>
 
-  <section id="projects" class="py-32 px-6 bg-gradient-to-l from-black via-slate-950 to-black">
-  <h3 class="text-5xl font-display font-bold text-center mb-20 text-white">
-    🧠 Data‑Science Projects
-  </h3>
-  <div class="flex flex-col gap-14 items-center max-w-4xl mx-auto">
+  <main class="project-wrap-unique">
+    <header class="project-head-unique">
+      <h1 class="project-title-unique">Featured Projects</h1>
 
-    <!-- Project 1 -->
-    <div class="w-full p-8 rounded-2xl bg-gradient-to-br from-slate-800 via-slate-900 to-slate-800 shadow-lg shadow-indigo-500/40 border border-indigo-500 transition-transform hover:scale-105 hover:shadow-indigo-400/50">
-      <h4 class="text-2xl font-bold text-indigo-300 mb-2 flex items-center gap-2">
-        <i class="fas fa-chart-line text-indigo-400"></i> Retail Sales Forecast
-      </h4>
-      <p class="text-base text-slate-300 mb-3">Prophet model + Streamlit dashboard reducing stock‑outs by 22%.</p>
-      <div class="flex flex-wrap gap-2 mb-4">
-        <span class="tag">Python</span><span class="tag">Prophet</span><span class="tag">Streamlit</span>
-      </div>
-      <a href="https://github.com/divyaraj160/retail-sales-analysis" class="underline text-accent font-medium">🔗 GitHub</a>
+      <!-- Filter Pills -->
+      <nav id="project-filters-unique" class="project-filters-unique" aria-label="Project filters">
+        <button class="project-pill-unique active" data-filter="all">All</button>
+        <button class="project-pill-unique" data-filter="analytics">Data Analytics</button>
+        <button class="project-pill-unique" data-filter="science">Data Science</button>
+        <button class="project-pill-unique" data-filter="excel">Excel/Tableau</button>
+        <button class="project-pill-unique" data-filter="powerbi">Power BI</button>
+      </nav>
+    </header>
+
+    <!-- Project List (vertical) -->
+    <section id="project-list-unique" class="project-list-unique" aria-live="polite"></section>
+
+    <div class="project-more-unique">
+      <a class="project-cta-unique" href="https://github.com/divyaraj160?tab=repositories" target="_blank" rel="noopener">
+        View More on GitHub
+      </a>
     </div>
+  </main>
 
-    <!-- Project 2 -->
-    <div class="w-full p-8 rounded-2xl bg-gradient-to-br from-slate-800 via-slate-900 to-slate-800 shadow-lg shadow-pink-500/40 border border-pink-500 transition-transform hover:scale-105 hover:shadow-pink-400/50">
-      <h4 class="text-2xl font-bold text-pink-300 mb-2 flex items-center gap-2">
-        <i class="fas fa-user-slash text-pink-300"></i> Customer Churn Model
-      </h4>
-      <p class="text-base text-slate-300 mb-3">XGBoost + SHAP explainers captured 89% churners.</p>
-      <div class="flex flex-wrap gap-2 mb-4">
-        <span class="tag">XGBoost</span><span class="tag">SHAP</span><span class="tag">Pandas</span>
+<!--
+<section id="projects" class="py-32 px-6 bg-gradient-to-l from-black via-slate-950 to-black">
+<h3 class="text-5xl font-bold text-center mb-20 text-white">📊 Featured Projects</h3>
+
+    
+<div class="max-w-5xl mx-auto">
+<h4 class="text-2xl font-semibold text-white mb-6">Data Analytics</h4>
+<div class="grid md:grid-cols-2 gap-8">
+
+<div class="w-full p-6 rounded-2xl bg-slate-800 border border-indigo-500 transition-transform hover:scale-[1.02]">
+<h5 class="text-xl font-bold text-indigo-300 mb-2 flex items-center gap-2"><i class="fas fa-store"></i> Retail Sales Performance (Power BI)</h5>
+<p class="text-slate-300 mb-3">End‑to‑end dashboard (Power Query + DAX) tracking revenue, profit, and discount impact; flagged low‑margin SKUs.</p>
+<div class="flex flex-wrap gap-2 mb-4"><span class="tag">Power BI</span><span class="tag">Power Query</span><span class="tag">DAX</span><span class="tag">Excel</span></div>
+<a target="_blank" rel="noopener" href="https://github.com/divyaraj160/retail-sales-analysis" class="underline text-indigo-300 font-medium">🔗 GitHub</a>
+</div>
+
+<div class="w-full p-6 rounded-2xl bg-slate-800 border border-pink-500 transition-transform hover:scale-[1.02]">
+<h5 class="text-xl font-bold text-pink-300 mb-2 flex items-center gap-2"><i class="fas fa-shield-halved"></i> Insurance Claims Analytics</h5>
+<p class="text-slate-300 mb-3">Modeled policy/premium/claims in SQL; KPIs in Power BI to surface high‑loss regions and long cycle times.</p>
+<div class="flex flex-wrap gap-2 mb-4"><span class="tag">SQL</span><span class="tag">Data Modeling</span><span class="tag">Power BI</span><span class="tag">DAX</span></div>
+<a target="_blank" rel="noopener" href="https://github.com/divyaraj160/insurance-claims-analytics" class="underline text-pink-200 font-medium">🔗 GitHub</a>
+</div>
+
+<div class="w-full p-6 rounded-2xl bg-slate-800 border border-emerald-400 transition-transform hover:scale-[1.02]">
+<h5 class="text-xl font-bold text-emerald-300 mb-2 flex items-center gap-2"><i class="fas fa-money-bill-trend-up"></i> UPI Transactions Trend Analysis</h5>
+<p class="text-slate-300 mb-3">Cleaned monthly UPI data; time‑series visuals, state comparisons, and drill‑through detail pages.</p>
+<div class="flex flex-wrap gap-2 mb-4"><span class="tag">Power BI</span><span class="tag">Time Series</span><span class="tag">Pandas</span></div>
+<a target="_blank" rel="noopener" href="https://github.com/divyaraj160/upi-transactions-bi" class="underline text-emerald-200 font-medium">🔗 GitHub</a>
+</div>
+</div>
+
+
+<div class="max-w-5xl mx-auto mt-16">
+<h4 class="text-2xl font-semibold text-white mb-6">Data Science</h4>
+<div class="grid md:grid-cols-3 gap-8">
+
+<div class="w-full p-6 rounded-2xl bg-slate-800 border border-indigo-500">
+<h5 class="text-lg font-bold text-indigo-300 mb-2"><i class="fas fa-chart-line"></i> Retail Sales Forecast</h5>
+<p class="text-slate-300 mb-3">Prophet model + Streamlit dashboard; reduced stock‑outs in scenario testing.</p>
+<div class="flex flex-wrap gap-2 mb-4"><span class="tag">Python</span><span class="tag">Prophet</span><span class="tag">Streamlit</span></div>
+<a target="_blank" rel="noopener" href="https://github.com/divyaraj160/retail-sales-analysis" class="underline text-indigo-300">🔗 GitHub</a>
+</div>
+
+<div class="w-full p-6 rounded-2xl bg-slate-800 border border-pink-500">
+<h5 class="text-lg font-bold text-pink-300 mb-2"><i class="fas fa-user-slash"></i> Customer Churn Model</h5>
+<p class="text-slate-300 mb-3">XGBoost + SHAP explainers; high recall on churners with interpretable drivers.</p>
+<div class="flex flex-wrap gap-2 mb-4"><span class="tag">XGBoost</span><span class="tag">SHAP</span><span class="tag">Pandas</span></div>
+<a target="_blank" rel="noopener" href="https://github.com/divyaraj160/customer-churn-sql-ml" class="underline text-pink-200">🔗 GitHub</a>
+</div>
+
+<div class="w-full p-6 rounded-2xl bg-slate-800 border border-emerald-400">
+<h5 class="text-lg font-bold text-emerald-300 mb-2"><i class="fas fa-file-medical"></i> Diabetes Risk Factor Analysis</h5>
+<p class="text-slate-300 mb-3">EDA with Pandas/NumPy/Matplotlib/Seaborn on Pima dataset; feature insights.</p>
+<div class="flex flex-wrap gap-2 mb-4"><span class="tag">Pandas</span><span class="tag">EDA</span><span class="tag">Visualization</span></div>
+<a target="_blank" rel="noopener" href="https://github.com/divyaraj160/diabetes-risk-analysis" class="underline text-emerald-200">🔗 GitHub</a>
+</div>
+</div>
+</div>
+
+
+<div class="max-w-5xl mx-auto mt-16">
+<div class="text-center mt-12">
+<a href="https://github.com/divyaraj160?tab=repositories" target="_blank" rel="noopener" class="inline-block px-6 py-3 bg-indigo-600 text-white font-semibold rounded-xl shadow hover:bg-indigo-500 transition">View More Projects on GitHub</a>
+</div>
+</div>
+</section> -->
+
+<section id="certs" class="py-24 px-6 bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900">
+  <div class="max-w-4xl mx-auto">
+    <h3 class="text-4xl font-bold text-white text-center mb-12">🎓 Certifications</h3>
+    <div class="grid md:grid-cols-2 gap-8">
+      
+      <!-- Completed -->
+      <div class="glass-card p-6">
+        <h4 class="text-xl font-semibold text-white">Kaggle – Python</h4>
+        <p class="text-slate-300 mt-1">Issued Jun 2025 • Credential in Python (Programming Language).</p>
       </div>
-      <a href="https://github.com/divyaraj160/customer-churn-sql-ml" class="underline text-accent font-medium">🔗 GitHub</a>
-    </div>
-
-    <!-- Project 3 -->
-    <div class="w-full p-8 rounded-2xl bg-gradient-to-br from-slate-800 via-slate-900 to-slate-800 shadow-lg shadow-emerald-400/40 border border-emerald-400 transition-transform hover:scale-105 hover:shadow-emerald-300/50">
-      <h4 class="text-2xl font-bold text-emerald-300 mb-2 flex items-center gap-2">
-        <i class="fas fa-file-alt text-emerald-300"></i>Diabetes Risk Factor Analysis
-      </h4>
-      <p class="text-base text-slate-300 mb-3">Exploratory Data Analysis of diabetes risk factors using Pandas, NumPy, Matplotlib, and Seaborn on the Pima Indians dataset.</p>
-      <div class="flex flex-wrap gap-2 mb-4">
-        <span class="tag">spaCy</span><span class="tag">NLP</span><span class="tag">Streamlit</span>
+      
+      <!-- In Progress -->
+      <div class="glass-card p-6">
+        <h4 class="text-xl font-semibold text-white">Udemy – Master Data Analysis</h4>
+        <p class="text-slate-300 mt-1">In Progress • Covers Python, Stats, Gen AI, EDA, AWS, SQL, Excel, Power BI, Tableau, ETL, Snowflake & Feature Engineering. Expected 2025.</p>
       </div>
-      <a href="https://github.com/divyaraj160/diabetes-risk-analysis" class="underline text-accent font-medium">🔗 GitHub</a>
-    </div>
 
+    </div>
   </div>
 </section>
 
@@ -366,7 +553,7 @@
     <div class="max-w-xl mx-auto text-center">
       <h3 class="text-4xl font-display font-bold mb-8">📫 Get In Touch</h3>
       <p class="mb-6">
-        Open to data science roles, collaborations or a friendly chat about AI.
+        Open to data analyst and data science roles, freelance dashboard work, or collaborations.
       </p>
       <div class="flex justify-center space-x-8 text-3xl">
         <a
@@ -410,19 +597,20 @@
     // theme switcher
     const themeToggle = document.getElementById("themeToggle");
     function setTheme(dark) {
-      document.documentElement.classList.toggle("dark", dark);
-      themeToggle.innerHTML = dark
-        ? '<i class="fa-regular fa-moon"></i>'
-        : '<i class="fa-regular fa-sun"></i>';
-      localStorage.setItem("theme", dark ? "dark" : "light");
-    }
+  document.documentElement.classList.toggle("dark", dark); // html
+  document.body.classList.toggle("dark", dark);            // <-- add this
+  themeToggle.innerHTML = dark ? '<i class="fa-regular fa-moon"></i>'
+                               : '<i class="fa-regular fa-sun"></i>';
+  localStorage.setItem("theme", dark ? "dark" : "light");
+}
+
     setTheme(localStorage.getItem("theme") === "dark");
     themeToggle.addEventListener("click", () =>
       setTheme(document.documentElement.classList.contains("dark") ? false : true)
     );
 
     // Typing animation
-    const titles = ['Data Scientist', 'ML Engineer', 'SQL Specialist'];
+    const titles = ['Data Analyst', 'Power Bi Analyst', 'Business Analyst'];
     const typingElement = document.getElementById('typing-text');
     const typingSpeed = 120; // ms per char typed
     const erasingSpeed = 80; // ms per char erased
@@ -456,6 +644,97 @@
     }
 
     type();
+
+    // --- Data ---
+const PROJECTS_UNIQUE = [
+  {
+    title: "Retail Sales Performance (Power BI)",
+    desc: "End-to-end dashboard (Power Query + DAX) tracking revenue, profit, and discount impact; flagged low-margin SKUs.",
+    tags: ["Power BI", "DAX", "Excel"],
+    url: "https://github.com/divyaraj160/retail-sales-analysis",
+    cat: ["analytics", "powerbi"]
+  },
+  {
+    title: "Insurance Claims Analytics",
+    desc: "SQL data model + KPIs in Power BI to surface high-loss regions and long cycle times.",
+    tags: ["SQL", "Power BI", "DAX"],
+    url: "https://github.com/divyaraj160/insurance-claims-analytics",
+    cat: ["analytics", "powerbi"]
+  },
+  {
+    title: "UPI Transactions Trend Analysis",
+    desc: "Cleaned monthly UPI data; time-series visuals, state comparisons, and drill-through pages.",
+    tags: ["Pandas", "Power BI"],
+    url: "https://github.com/divyaraj160/upi-transactions-bi",
+    cat: ["analytics", "powerbi"]
+  },
+  {
+    title: "Student Depression (SQL + Tableau)",
+    desc: "Modeled survey tables; Tableau storyboard to highlight demographic risk factors.",
+    tags: ["SQL", "Tableau"],
+    url: "https://github.com/divyaraj160/student-depression-sql-tableau",
+    cat: ["analytics", "excel"]
+  },
+  {
+    title: "Retail Sales Forecast",
+    desc: "Prophet + Streamlit dashboard; scenario tests to reduce stock-outs.",
+    tags: ["Prophet", "Streamlit"],
+    url: "https://github.com/divyaraj160/retail-sales-analysis",
+    cat: ["science"]
+  },
+  {
+    title: "Customer Churn Model",
+    desc: "XGBoost + SHAP explainers; interpretable churn drivers with strong recall.",
+    tags: ["XGBoost", "SHAP", "Pandas"],
+    url: "https://github.com/divyaraj160/customer-churn-sql-ml",
+    cat: ["science"]
+  },
+  {
+    title: "Diabetes Risk Factor EDA",
+    desc: "EDA with Pandas/NumPy/Matplotlib/Seaborn on the Pima dataset.",
+    tags: ["EDA", "Visualization"],
+    url: "https://github.com/divyaraj160/diabetes-risk-analysis",
+    cat: ["science"]
+  }
+];
+
+// --- Render ---
+const projectListUnique = document.getElementById("project-list-unique");
+const projectFiltersUnique = document.querySelectorAll("#project-filters-unique .project-pill-unique");
+
+function cardTemplateUnique({ title, desc, tags, url, cat }) {
+  const cats = cat.join(" ");
+  const badges = tags.map(t => `<span class="project-badge-unique">${t}</span>`).join("");
+  return `
+    <article class="project-card-unique" data-cat="${cats}">
+      <h2 class="project-card-title-unique">${title}</h2>
+      <p class="project-card-desc-unique">${desc}</p>
+      <div class="project-badges-unique">${badges}</div>
+      <a class="project-link-unique" href="${url}" target="_blank" rel="noopener">GitHub</a>
+    </article>
+  `;
+}
+
+function renderProjectsUnique(items) {
+  projectListUnique.innerHTML = items.map(cardTemplateUnique).join("");
+}
+
+renderProjectsUnique(PROJECTS_UNIQUE);
+
+// --- Filters ---
+projectFiltersUnique.forEach(btn => {
+  btn.addEventListener("click", () => {
+    projectFiltersUnique.forEach(b => b.classList.remove("active"));
+    btn.classList.add("active");
+
+    const f = btn.dataset.filter;
+    if (f === "all") return renderProjectsUnique(PROJECTS_UNIQUE);
+
+    const filtered = PROJECTS_UNIQUE.filter(p => p.cat.includes(f));
+    renderProjectsUnique(filtered);
+  });
+});
+
   </script>
 </body>
 </html>
